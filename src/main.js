@@ -36,7 +36,7 @@ Vue.prototype.$toSelfIpAddr = 'http://localhost:8080/'; // vue跳转自身IP地�
 Vue.config.productionTip = false
 
 //设置全局翻页每页页数大小
-Vue.prototype.$pageSize = 3; 
+Vue.prototype.$pageSize = 20; 
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
