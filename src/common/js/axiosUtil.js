@@ -39,7 +39,8 @@ export default {
 				withCredentials: true
 			},
 			data: {
-				accessHead: accessHead,
+				serviceCode: accessHead,
+				token: 'token',
 				content: content
 			}
 		})

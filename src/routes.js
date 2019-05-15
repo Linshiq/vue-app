@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Main from './views/Main.vue'
 import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
+import Qurey from './views/nav1/Qurey.vue'
 import user from './views/nav1/user.vue'
 import Upload from './views/nav1/Upload.vue'
 import Page4 from './views/nav2/Page4.vue'
@@ -36,6 +37,7 @@ let routes = [
             { path: '/form', component: Form, name: 'Form' },
             { path: '/user', component: user, name: '列表' },
 			{ path: '/upload', component: Upload, name: '上传' },
+			{ path: '/Qurey', component: Qurey, name: 'Qurey' },
         ]
     },
     {
