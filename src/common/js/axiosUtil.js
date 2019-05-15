@@ -29,7 +29,7 @@ export default {
 		}
 
 	},
-	getAxiosPost: function(_this, url, accessHead, content) {
+	getAxiosPost: function(_this, url, serviceCode, content) {
 
 		return _this.$axios({
 			method: 'post',
@@ -39,14 +39,14 @@ export default {
 				withCredentials: true
 			},
 			data: {
-				serviceCode: accessHead,
+				serviceCode: serviceCode,
 				token: 'token',
 				content: content
 			}
 		})
 
 	},
-	getAxiosPagePost: function(_this, url, accessHead, content, page, pageSize) {
+	getAxiosPagePost: function(_this, url, serviceCode, content, page, pageSize) {
 
 		return _this.$axios({
 			method: 'post',
@@ -56,7 +56,8 @@ export default {
 				withCredentials: true
 			},
 			data: {
-				accessHead: accessHead,
+				serviceCode: serviceCode,
+				token: 'token',
 				content: content,
 				pageNumber: page,
 				pageSize: pageSize,
@@ -65,7 +66,7 @@ export default {
 		})
 
 	},
-	getAxiosGet: function(_this, url, accessHead, content) {
+	getAxiosGet: function(_this, url, serviceCode, content) {
 
 		return _this.$axios({
 			method: 'get',
@@ -75,7 +76,8 @@ export default {
 			},
 			url: url,
 			data: {
-				accessHead: accessHead,
+				serviceCode: serviceCode,
+				token: 'token',
 				content: content
 			}
 		})
