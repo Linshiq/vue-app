@@ -61,7 +61,7 @@ export default {
 				content: content,
 				pageNumber: page,
 				pageSize: pageSize,
-				isPage: "true"
+				isPage: true
 			}
 		})
 

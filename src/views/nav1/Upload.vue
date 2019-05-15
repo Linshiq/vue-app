@@ -10,26 +10,6 @@
 					<el-button type="primary" v-on:click="getUser">查询</el-button>
 				</el-form-item>
 			</el-form>
-			<!-- <el-upload class="upload-demo" ref="upload" action="http://127.0.0.1:8012/spring-boot-vue/upload/test" :on-preview="handlePreview"
-			 :on-remove="handleRemove" :file-list="fileList" :auto-upload="false">
-				<el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-				<el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-				<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-			</el-upload> -->
-			<!-- 	<el-upload class="upload-demo" ref="upload" action='' 	:on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList"
-			 :auto-upload="false">
-				<el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-				<el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-				<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-			</el-upload> -->
-
-			<!-- <el-upload class="upload-demo" action="http://127.0.0.1:8012/spring-boot-vue/upload/uuuu" :on-preview="handlePreview"
-			 :on-remove="handleRemove" :before-remove="beforeRemove" multiple :limit="3" :on-exceed="handleExceed" name="picName"
-			 :file-list="fileList">
-				<el-button size="small" type="primary">点击上传</el-button>
-				<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-			</el-upload> -->
-
 			<el-upload class="upload-demo" ref="upload" :action="url" :on-preview="handlePreview"
 			 :on-remove="handleRemove" :file-list="fileList" :auto-upload="false" name="files">
 				<el-button slot="trigger" size="small" type="primary">选取文件</el-button>
@@ -59,10 +39,6 @@
 	</section>
 </template>
 <script>
-	import {
-		getUserList
-	} from '../../api/api';
-
 	import axiosUtil from '../../common/js/axiosUtil.js';
 
 	//import NProgress from 'nprogress'

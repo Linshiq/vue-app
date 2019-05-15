@@ -54,17 +54,18 @@ router.beforeEach((to, from, next) => {
 // 	 next({ path: '/table' })
 // 	}
 // 	
-  if (to.path == '/login') {
-    sessionStorage.removeItem('user');
-  }
-	//next({ path: '/table' })
-	// 先移除登录校验
-  let user = JSON.parse(sessionStorage.getItem('user'));
-  if (!user && to.path != '/login') {
-    next({ path: '/login' })
-  } else {
-    next()
-  }
+		next();
+//   if (to.path == '/login') {
+//     sessionStorage.removeItem('user');
+//   }
+// 	//next({ path: '/table' })
+// 	// 先移除登录校验
+//   let user = JSON.parse(sessionStorage.getItem('user'));
+//   if (!user && to.path != '/login') {
+//     next({ path: '/login' })
+//   } else {
+//     next()
+//   }
 })
 
 //router.afterEach(transition => {

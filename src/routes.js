@@ -2,11 +2,14 @@ import Login from './views/Login.vue'
 import NotFound from './views/404.vue'
 import Home from './views/Home.vue'
 import Main from './views/Main.vue'
+
 import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
 import Qurey from './views/nav1/Qurey.vue'
 import user from './views/nav1/user.vue'
 import Upload from './views/nav1/Upload.vue'
+import BillDetails from './views/nav1/BillDetails.vue'
+
 import Page4 from './views/nav2/Page4.vue'
 import Page5 from './views/nav2/Page5.vue'
 import Page6 from './views/nav3/Page6.vue'
@@ -38,6 +41,7 @@ let routes = [
             { path: '/user', component: user, name: '列表' },
 			{ path: '/upload', component: Upload, name: '上传' },
 			{ path: '/Qurey', component: Qurey, name: 'Qurey' },
+			{ path: '/BillDetails', component: BillDetails, name: '账单明细' },
         ]
     },
     {
