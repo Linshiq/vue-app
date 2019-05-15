@@ -45,7 +45,9 @@
       },
       handleSubmit2(ev) {
         var _this = this;
+			
         this.$refs.ruleForm2.validate((valid) => {
+					debugger;
           if (valid) {
             //_this.$router.replace('/table');
             this.logining = true;
@@ -70,7 +72,7 @@
             return false;
           }
         });
-      }
+       }
     }
   }
 

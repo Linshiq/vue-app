@@ -10,9 +10,33 @@ import Vuex from 'vuex'
 //import NProgress from 'nprogress'
 //import 'nprogress/nprogress.css'
 import routes from './routes'
-import Mock from './mock'
-Mock.bootstrap();
+// import Mock from './mock' // 这里与axios冲突,要用只能选其一
+// Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
+
+import axios from 'axios'
+
+axios.defaults.withCredentials=true;
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+
+var instance = axios.create({
+  baseURL:'',
+  timeout:5000,
+  headers:{"Content-Type":"multipart/form-data"}
+});
+Vue.prototype.$axios = axios; // 配置axios
+Vue.prototype.$instance=instance;
+
+Vue.prototype.$serviceIpAddr = 'http://127.0.0.1:8012/spring-boot-vue'; // 配置axios
+Vue.prototype.$selfIpAddr = 'http://127.0.0.1:8080/'; // vue自身IP地址
+axios.defaults.baseURL = 'https://localhost:8012/spring-boot-vue';
+Vue.prototype.$toSelfIpAddr = 'http://localhost:8080/'; // vue跳转自身IP地址
+// 将API方法绑定到全局
+Vue.config.productionTip = false
+
+//设置全局翻页每页页数大小
+Vue.prototype.$pageSize = 3; 
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
@@ -26,9 +50,15 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   //NProgress.start();
+// 	if (to.path == '/') {
+// 	 next({ path: '/table' })
+// 	}
+// 	
   if (to.path == '/login') {
     sessionStorage.removeItem('user');
   }
+	//next({ path: '/table' })
+	// 先移除登录校验
   let user = JSON.parse(sessionStorage.getItem('user'));
   if (!user && to.path != '/login') {
     next({ path: '/login' })
