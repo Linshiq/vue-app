@@ -7,7 +7,7 @@
 					<el-input v-model="filters.name" placeholder="姓名"></el-input>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" v-on:click="getUser">查询</el-button>
+					<el-button type="primary" v-on:click="">查询</el-button>
 				</el-form-item>
 			</el-form>
 			<el-upload class="upload-demo" ref="upload" :action="url" :on-preview="handlePreview"
@@ -59,19 +59,6 @@
 			formatSex: function(row, column) {
 				return row.sex == 1 ? '男' : row.sex == 0 ? '女' : '未知';
 			},
-			//获取用户列表
-			getUser: function() {
-				let para = {
-					name: this.filters.name
-				};
-				this.loading = true;
-				//NProgress.start();
-				getUserList(para).then((res) => {
-					this.users = res.data.users;
-					this.loading = false;
-					//NProgress.done();
-				});
-			},
 			submitUpload(file) {
 				this.$refs.upload.submit();
 			},
@@ -83,8 +70,8 @@
 			}
 		},
 		mounted() {
-			this.getUser();
 			this.url = this.$serviceIpAddr + '/upload/uuuu';
+			console.log(this.url);
 		}
 	};
 </script>
