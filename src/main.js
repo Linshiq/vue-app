@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
 // 	 next({ path: '/table' })
 // 	}
 // 	
-		next();
+		 next();
 //   if (to.path == '/login') {
 //     sessionStorage.removeItem('user');
 //   }
