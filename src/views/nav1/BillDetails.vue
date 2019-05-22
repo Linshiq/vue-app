@@ -101,6 +101,7 @@
 					})
 					.catch(function(error) {
 						console.log("错误" + error);
+						axiosUtil.successMessage(_this, '查询失败'+error);
 					});
 			}
 		},
