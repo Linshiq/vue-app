@@ -70,7 +70,7 @@
 						}
 						
 						this.logining = false;
-
+						// 由于前段是单线程,所以不用担心多用户(不同电脑,不同浏览器)串用数据
 						sessionStorage.setItem('user', JSON.stringify(user));
 						let userData = JSON.parse(sessionStorage.getItem('user'));
 						console.log(userData);

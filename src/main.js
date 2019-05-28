@@ -60,6 +60,7 @@ router.beforeEach((to, from, next) => {
   }
 	//next({ path: '/table' })
 	// 先移除登录校验
+	// 由于前段是单线程,所以不用担心多用户(不同电脑,不同浏览器)串用数据
   let user = JSON.parse(sessionStorage.getItem('user'));
   console.log(user);
   if (!user && to.path != '/login') {
