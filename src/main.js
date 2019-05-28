@@ -28,9 +28,9 @@ var instance = axios.create({
 Vue.prototype.$axios = axios; // 配置axios
 Vue.prototype.$instance=instance;
 
-Vue.prototype.$serviceIpAddr = 'http://127.0.0.1:8012/spring-boot-vue'; // 配置axios
+Vue.prototype.$serviceIpAddr = 'http://127.0.0.1:8012/spring-boot-vue-1.0.1'; // 配置axios
 Vue.prototype.$selfIpAddr = 'http://127.0.0.1:8080/'; // vue自身IP地址
-axios.defaults.baseURL = 'https://localhost:8012/spring-boot-vue';
+axios.defaults.baseURL = 'https://localhost:8012/spring-boot-vue-1.0.1';
 Vue.prototype.$toSelfIpAddr = 'http://localhost:8080/'; // vue跳转自身IP地址
 // 将API方法绑定到全局
 Vue.config.productionTip = false
@@ -55,17 +55,18 @@ router.beforeEach((to, from, next) => {
 // 	}
 // 	
 		 next();
-//   if (to.path == '/login') {
-//     sessionStorage.removeItem('user');
-//   }
-// 	//next({ path: '/table' })
-// 	// 先移除登录校验
-//   let user = JSON.parse(sessionStorage.getItem('user'));
-//   if (!user && to.path != '/login') {
-//     next({ path: '/login' })
-//   } else {
-//     next()
-//   }
+  if (to.path == '/login') {
+    sessionStorage.removeItem('user');
+  }
+	//next({ path: '/table' })
+	// 先移除登录校验
+  let user = JSON.parse(sessionStorage.getItem('user'));
+  console.log(user);
+  if (!user && to.path != '/login') {
+    next({ path: '/login' })
+  } else {
+    next()
+  }
 })
 
 //router.afterEach(transition => {
