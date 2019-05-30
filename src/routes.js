@@ -7,8 +7,10 @@ import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
 import Qurey from './views/nav1/Qurey.vue'
 import user from './views/nav1/user.vue'
-import Upload from './views/nav1/Upload.vue'
-import BillDetails from './views/nav1/BillDetails.vue'
+// bill 导航
+import Upload from './views/bill/Upload.vue'
+import BillDetails from './views/bill/BillDetails.vue'
+import Review from './views/bill/Review.vue'
 
 import Page4 from './views/nav2/Page4.vue'
 import Page5 from './views/nav2/Page5.vue'
@@ -29,6 +31,7 @@ let routes = [
         hidden: true
     },
     //{ path: '/main', component: Main },
+	
     {
         path: '/',
         component: Home,
@@ -43,7 +46,17 @@ let routes = [
 			{ path: '/Qurey', component: Qurey, name: 'Qurey' },
 			{ path: '/BillDetails', component: BillDetails, name: '账单明细' },
         ]
-    },
+    },{
+	    path: '/',
+	    component: Home,
+	    name: '账单信息',
+	    iconCls: 'el-icon-message',//图标样式class
+	    children: [
+			{ path: '/upload', component: Upload, name: '上传' },
+			{ path: '/BillDetails', component: BillDetails, name: '账单明细' },
+			{ path: '/Review', component: Review, name: '审核' },
+	    ]
+	},
     {
         path: '/',
         component: Home,
