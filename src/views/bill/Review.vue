@@ -20,6 +20,8 @@
 				</el-table-column>
 				<el-table-column prop="info" label="备注" min-width="180" sortable>
 				</el-table-column>
+				<el-table-column prop="steps" label="进度" min-width="180" sortable>
+				</el-table-column>
 				<el-table-column label="操作" min-width="180">
 					<template scope="scope">
 							<el-button size="small" @click="versionInfo(scope.$index, scope.row,'changeContent')">审核步骤</el-button>
@@ -38,7 +40,7 @@
 		</template>
 
 		<el-dialog title="提示" :visible.sync="centerDialogVisible" width="30%" center>
-			<el-steps :active="2" align-center>
+			<el-steps :active="active" align-center>
 				<el-step title="步骤1" description="这是一段很长很长很长的描述性文字"></el-step>
 				<el-step title="步骤2" description="这是一段很长很长很长的描述性文字"></el-step>
 				<el-step title="步骤3" description="这是一段很长很长很长的描述性文字"></el-step>
@@ -67,7 +69,8 @@
 				loading: false,
 				centerDialogVisible: false,
 				users: [],
-				reviewData: []
+				reviewData: [],
+				active: 1,
 			}
 		},
 		methods: {
@@ -80,7 +83,8 @@
 				this.getData();
 			},
 			versionInfo: function(index,row,obj) {
-				this.centerDialogVisible = true
+				this.centerDialogVisible = true;
+				this.active = row.steps;
 			},
 			getData: function() {
 				let para = {
@@ -95,7 +99,12 @@
 				var pageSize = this.pageSize;
 				this.reviewData = [
 					{
-						"info":"test"
+						"info":"test1",
+						"steps":"1",
+					},
+					{
+						"info":"test2",
+						"steps":"2",
 					}
 				];
 				
